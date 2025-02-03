@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>film öneri sitesi
+    </title>
+</head>
+<body>
+    <h1>FİLM ÖNERİ SİSTEMİ</h1>
+
+    <form action="/recommend" method="post">
+        <label for="movie">BİR FİLM ADI GİRİNİZ: </label>
+        <input type="text" name="movie" id="movie" required>
+        <button type="submit">ÖNERİLERİ GÖSTER</button>
+    </form>
+
+    {% if not movies.empty %}
+    <!-- Tavsiye edilen filmleri burada göster -->
+    {% for movie in movies.iterrows() %}
+      <p>{{ movie[1]['title'] }}</p> <!-- Örnek olarak film başlığı -->
+    {% endfor %}
+  {% else %}
+    <p>Film bulunamadı veya öneriler gösterilemiyor.</p>
+  {% endif %}
+  
+
+</body>
+</html>
